@@ -1,24 +1,15 @@
-# README
+# テッキー職人
+職人とのマッチングアプリケーションです。
+使い方はQiitaとYoutubeで公開予定です。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Githubコード
+https://github.com/kin-mugi/syokunin_app2
 
-Things you may want to cover:
 
-* Ruby version
+## Twitterアカウント
+学習記録を全て公開しています。
+https://twitter.com/kin0108
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使い方
+近日更新
