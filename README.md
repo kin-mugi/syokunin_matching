@@ -13,3 +13,7 @@ https://twitter.com/kin0108
 
 ## 使い方
 近日更新
+
+sample user
+User.create(name: "Michael Hartl", email: "michael@example.com",
+password: "foobar", password_confirmation: "foobar")
