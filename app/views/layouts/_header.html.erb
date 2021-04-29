@@ -2,18 +2,18 @@
   <div>
     <%= link_to "テッキー職人", root_path, id: "logo" %>
     <nav>
-      <ul >
+      <ul>
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Help", help_path %></li>
         <% if logged_in? %>
-          <li><%= link_to "Users", '#' %></li>
+          <li><%= link_to "Users", users_path %></li>
           <li>
             <a href="#">
               Account <b></b>
             </a>
             <ul>
               <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", '#' %></li>
+              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
               <li></li>
               <li>
                 <%= link_to "Log out", logout_path ,method: :delete %>
