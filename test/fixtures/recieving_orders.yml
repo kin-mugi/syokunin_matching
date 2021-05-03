@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  topic: MyText
+  category: MyText
+  cost_minimum: 1
+  cost_maximum: 1
+  detail: MyText
+  user: one
+
+two:
+  topic: MyText
+  category: MyText
+  cost_minimum: 1
+  cost_maximum: 1
+  detail: MyText
+  user: two

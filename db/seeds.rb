@@ -6,11 +6,25 @@ User.create!(name:  "エビス",
              password_confirmation: "foobar",
              admin: true)
 
+RecievingOrder.create!(user_id: "1",
+                       topic: "リフォームします！",
+                       category: "リフォーム",
+                       cost_maximum: "1000",
+                       cost_minimum: "20",
+                       detail: "かっこいい家にしませんか？やりましょう！")
+
 User.create!(name:  "あさひ",
              email: "asahi@railstutorial.org",
              password:              "foobar",
              password_confirmation: "foobar",
              admin: true)
+
+RecievingOrder.create!(user_id: "2",
+                       topic: "どこよりも安く、解体工事します！",
+                       category: "解体",
+                       cost_maximum: "300",
+                       cost_minimum: "15",
+                       detail: "空き家に困っていませんか？解体して綺麗な更地にしましょう！")
             
 User.create!(name:  "金麦",
              email: "kin@railstutorial.org",

@@ -1,0 +1,9 @@
+<% provide(:title, "受注詳細") %>
+<h1>受注詳細</h1>
+<ul>
+  <li>タイトル:   <%= @recieving_order.topic %></li>
+  <li>カテゴリー: <%= @recieving_order.category %></li>
+  <li>予算:      <%= @recieving_order.cost_minimum %>万 ~ <%= @recieving_order.cost_maximum %>万</li>
+  <%= link_to gravatar_for(@user, size: 20), @user %>
+  <span class="user"><%= link_to @user.name, @user %></span>
+</ul>
