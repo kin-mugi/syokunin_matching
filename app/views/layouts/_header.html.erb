@@ -3,25 +3,26 @@
     <%= link_to "テッキー職人", root_path, id: "logo" %>
     <nav>
       <ul>
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", help_path %></li>
+        <li><%= link_to "ホーム", root_path %></li>
+        <li><%= link_to "ヘルプ", help_path %></li>
+        <li><%= link_to "受注一蘭", recieving_orders_path %></li>
         <% if logged_in? %>
-          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "ユーザー一蘭", users_path %></li>
           <li>
             <a href="#">
               Account <b></b>
             </a>
             <ul>
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li><%= link_to "マイページ", current_user %></li>
+              <li><%= link_to "登録情報変更", edit_user_path(current_user) %></li>
               <li></li>
               <li>
-                <%= link_to "Log out", logout_path ,method: :delete %>
+                <%= link_to "ログアウト", logout_path ,method: :delete %>
               </li>
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to "ログイン", login_path %></li>
         <% end %>
       </ul>
     </nav>

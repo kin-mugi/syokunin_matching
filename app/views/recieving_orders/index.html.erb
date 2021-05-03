@@ -1,0 +1,8 @@
+<% provide(:title, "受注一蘭") %>
+<h1>受注一蘭</h1>
+<div class="col-md-8">
+  <%= @recieving_orders.count %>件
+  <ol class="microposts">
+    <%= render @recieving_orders %>
+  </ol>
+</div>
