@@ -1,5 +1,5 @@
-class RecievingOrder < ApplicationRecord
-  belongs_to :user
+class PlacingOrder < ApplicationRecord
+  belongs_to :user, optional: true
   default_scope -> { order(created_at: :desc) }
   validates :topic, presence: true, length: { maximum: 30 }
   validates :category, presence: true, length: { maximum: 30 }

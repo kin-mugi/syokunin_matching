@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :recieving_orders, dependent: :destroy
+  has_many :recieving_orders, foreign_key: :user_id, dependent: :destroy
+  has_many :placing_orders, foreign_key: :user_id, dependent: :destroy  
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
   validates :name,  presence: true, length: { maximum: 50 }

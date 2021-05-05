@@ -23,8 +23,10 @@
             注文 <b></b>
           </a>
           <ul>
-            <li><%= link_to "受注一蘭", recieving_orders_path %></li>
+            <li><%= link_to "受注一覧", recieving_orders_path %></li>
             <li><%= link_to "受注する", new_recieving_order_path %></li>
+            <li><%= link_to "発注一覧", placing_orders_path %></li>
+            <li><%= link_to "発注する", new_placing_order_path %></li>            
           </ul>
         </li>
         <% else %>

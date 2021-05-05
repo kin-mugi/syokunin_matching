@@ -1,0 +1,8 @@
+<li>
+  <span><%= link_to placing_order.topic, placing_order %></span>
+  <span>
+    <%= time_ago_in_words(placing_order.created_at) %>前に投稿
+  </span>
+  <%= link_to gravatar_for(placing_order.user, size: 20), placing_order.user %>
+  <%= link_to placing_order.user.name, placing_order.user %>
+</li>
