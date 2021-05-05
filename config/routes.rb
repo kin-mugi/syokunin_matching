@@ -5,10 +5,19 @@ Rails.application.routes.draw do
   get    'help'    => 'static_pages#help'
   get    'about'   => 'static_pages#about'
   get    'profile' => 'users#profile'
-  get    '/signup',  to: 'users#new'
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
-  resources :users
-  resources :recieving_orders
+  get    'signup',  to: 'users#new'
+  get    'login',   to: 'sessions#new'
+  post   'login',   to: 'sessions#create'
+  delete 'logout',  to: 'sessions#destroy'
+  resources :users do
+    member do
+      get :my_orders
+    end
+  end
+
+  resources :recieving_orders do
+    member do
+      get :new_plus
+    end
+  end
 end

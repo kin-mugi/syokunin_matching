@@ -1,0 +1,15 @@
+<% provide(:title, 'My注文一蘭') %>
+<h1>My注文一蘭</h1>
+
+<ul>
+  <% @recieving_orders.each do |recieving_order| %>
+    <li>
+    <span><%= link_to recieving_order.topic, recieving_order %></span>
+    <span>
+      Posted <%= time_ago_in_words(recieving_order.created_at) %> ago.
+    </span>
+  </li>
+  <% end %>
+</ul>
+
+<%= paginate @recieving_orders %>

@@ -6,4 +6,5 @@
   <li>予算:      <%= @recieving_order.cost_minimum %>万 ~ <%= @recieving_order.cost_maximum %>万</li>
   <%= link_to gravatar_for(@user, size: 20), @user %>
   <span class="user"><%= link_to @user.name, @user %></span>
+  <span class="user"><%= link_to "編集", edit_recieving_order_path(@recieving_order.id) %></span>  
 </ul>

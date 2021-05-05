@@ -1,0 +1,22 @@
+<% provide(:title, '投稿の変更') %>
+<h1>投稿の変更</h1>
+<%= form_with(model: @recieving_order, local: true) do |f| %>
+  <%= render 'shared/error_messages', model: f.object %>
+
+  <%= f.label :題名 %>
+  <%= f.text_field :topic %>
+
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+
+  <%= f.label :cost_minimum %>
+  <%= f.number_field :cout_minimum %>
+  
+  <%= f.label :cost_maximum %>
+  <%= f.number_field :cost_maximum %>
+  
+  <%= f.label :detail %>
+  <%= f.text_field :detail %>
+
+  <%= f.submit "送信", class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    attributes:     
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認用)
+      recieving_order:
+        topic: 題名
+        category: カテゴリー
+        cost_minimum: 最小コスト
+        cost_maximum: 最大コスト
+        detail: 詳細

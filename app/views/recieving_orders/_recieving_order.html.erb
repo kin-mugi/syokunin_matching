@@ -1,7 +1,7 @@
 <li>
   <span><%= link_to recieving_order.topic, recieving_order %></span>
   <span>
-    Posted <%= time_ago_in_words(recieving_order.created_at) %> ago.
+    <%= time_ago_in_words(recieving_order.created_at) %>前に投稿
   </span>
   <%= link_to gravatar_for(recieving_order.user, size: 20), recieving_order.user %>
   <%= link_to recieving_order.user.name, recieving_order.user %>
