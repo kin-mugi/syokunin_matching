@@ -25,5 +25,7 @@ Rails.application.routes.draw do
     member do
       get :new_plus
     end
-  end 
+  end
+
+  resources :chats
 end
