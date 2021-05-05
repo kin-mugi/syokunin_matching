@@ -20,4 +20,10 @@ Rails.application.routes.draw do
       get :new_plus
     end
   end
+
+  resources :placing_orders do
+    member do
+      get :new_plus
+    end
+  end 
 end

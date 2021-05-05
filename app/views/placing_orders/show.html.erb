@@ -1,0 +1,10 @@
+<% provide(:title, "発注詳細") %>
+<h1>発注詳細</h1>
+<ul>
+  <li>タイトル:   <%= @placing_order.topic %></li>
+  <li>カテゴリー: <%= @placing_order.category %></li>
+  <li>予算:      <%= @placing_order.cost_minimum %>万 ~ <%= @placing_order.cost_maximum %>万</li>
+  <%= link_to gravatar_for(current_user, size: 20), current_user %>
+  <span class="user"><%= link_to current_user.name, current_user %></span>
+  <span class="user"><%= link_to "編集", edit_placing_order_path(current_user.id) %></span>  #edit記述語、再確認
+</ul>
