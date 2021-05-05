@@ -10,6 +10,9 @@ gem 'turbolinks', '5.2.0'
 gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.5', require: false
 gem 'kaminari',   '1.2.1'
+gem 'better_errors'
+gem 'binding_of_caller'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
