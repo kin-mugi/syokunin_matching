@@ -1,15 +1,13 @@
 class RecievingOrdersController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create]
-  before_action :correct_user,   only: [:new, :create]
+  before_action :logged_in_user, only: [:new, :create, :edit, :new]
+  before_action :correct_user,   only: [:edit, :update]
 
    def show
     @recieving_order = RecievingOrder.find(params[:id])
-    @user = User.find(@recieving_order.user_id)
   end 
 
   def index
-    @users = User.all.page(params[:page]).per(10)
-    @recieving_orders = RecievingOrder.all
+    @recieving_orders = RecievingOrder.all.page(params[:page]).per(10)
   end
 
   def new
@@ -17,13 +15,12 @@ class RecievingOrdersController < ApplicationController
   end
 
   def create
-    @recieving_order = RecievingOrder.new(recieving_order_params)
-    
+    @recieving_order = current_user.recieving_orders.build(recieving_order_params)
     if @recieving_order.save
       flash[:success] = "投稿しました!"
       redirect_to @recieving_order
     else
-      render 'new_plus'
+      render 'new'
     end
   end
 
@@ -32,7 +29,7 @@ class RecievingOrdersController < ApplicationController
   end
 
   def update
-    @recieving_order = User.find(params[:id])
+    @recieving_order = RecievingOrder.find(params[:id])
     if @recieving_order.update(recieving_order_params)
       flash[:success] = "正常に更新されました‼︎"
       redirect_to @recieving_order
@@ -51,8 +48,7 @@ class RecievingOrdersController < ApplicationController
 
     # 正しいユーザーかどうか確認
     def correct_user
-      @recieving_order = RecievingOrder.find_by(params[:id])
-      @user = User.find_by(params[:user_id])
-      redirect_to(root_url) unless current_user?(@user)
-    end
+      @recieving_order = RecievingOrder.find(params[:id])
+      redirect_to(root_url) unless current_user?(@recieving_order.user)
+    end  
 end

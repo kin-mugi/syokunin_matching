@@ -4,7 +4,10 @@
   <li>タイトル:   <%= @recieving_order.topic %></li>
   <li>カテゴリー: <%= @recieving_order.category %></li>
   <li>予算:      <%= @recieving_order.cost_minimum %>万 ~ <%= @recieving_order.cost_maximum %>万</li>
-  <%= link_to gravatar_for(@user, size: 20), @user %>
-  <span class="user"><%= link_to @user.name, @user %></span>
-  <span class="user"><%= link_to "編集", edit_recieving_order_path(@recieving_order.id) %></span>  
+  <li>詳細:      <%= @recieving_order.detail %></li>
+  <%= link_to gravatar_for(@recieving_order.user, size: 20), @recieving_order.user %>
+  <span class="user"><%= link_to @recieving_order.user.name, @recieving_order.user %></span>
+  <% if current_user?(@recieving_order.user) %>
+    <span class="user"><%= link_to "編集", edit_recieving_order_path(current_user.id) %></span>
+  <% end %>
 </ul>
