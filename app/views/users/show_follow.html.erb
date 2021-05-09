@@ -1,0 +1,19 @@
+<% provide(:title, @title) %>
+<div>
+  <aside>
+    <section>
+      <%= gravatar_for @user %>
+      <%= @user.name %>
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+  <div>
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+      <ul>
+        <%= render @users %>
+      </ul>
+      <%= paginate @users %>
+    <% end %>
+  </div>
+</div>

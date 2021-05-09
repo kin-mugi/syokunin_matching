@@ -1,5 +1,5 @@
 
-# メインのサンプルユーザーを１１人作成する
+# sample user 1
 User.create!(name:  "エビス",
              email: "ebisu@railstutorial.org",
              password:              "foobar",
@@ -18,8 +18,15 @@ PlacingOrder.create!(user_id: "1",
                        category: "リフォーム",
                        cost_minimum: "40",
                        cost_maximum: "50",
-                       detail: "２階建の木造戸建てです。現地確認可能")                       
+                       detail: "２階建の木造戸建てです。現地確認可能")        
+                       
+Relationship.create!(follower_id: "1",
+                     followed_id: "2") 
+                    
+Relationship.create!(follower_id: "1",
+                     followed_id: "3")                     
 
+# sample user 2                       
 User.create!(name:  "あさひ",
              email: "asahi@railstutorial.org",
              password:              "foobar",
@@ -39,7 +46,14 @@ PlacingOrder.create!(user_id: "2",
                        cost_minimum: "40",
                        cost_maximum: "50",
                        detail: "２階建の木造戸建てです。現地確認可能")                           
-            
+
+Relationship.create!(follower_id: "2",
+                    followed_id: "1")
+
+Relationship.create!(follower_id: "2",
+                     followed_id: "5")                    
+
+# sample user 3                       
 User.create!(name:  "金麦",
              email: "kin@railstutorial.org",
              password:              "foobar",
@@ -51,8 +65,15 @@ PlacingOrder.create!(user_id: "3",
                        category: "補強工事",
                        cost_maximum: "50",
                        cost_minimum: "100",
-                       detail: "家がかなり古いので、地震が心配で、免震工事を検討しています。")             
+                       detail: "家がかなり古いので、地震が心配で、免震工事を検討しています。")
+                       
+Relationship.create!(follower_id: "3",
+                     followed_id: "1")
+                    
+Relationship.create!(follower_id: "3",
+                     followed_id: "2")                    
 
+# sample user 4                       
 User.create!(name:  "プレモル",
              email: "pure@railstutorial.org",
              password:              "foobar",
@@ -64,44 +85,57 @@ RecievingOrder.create!(user_id: "4",
                        category: "舗装",
                        cost_maximum: "10",
                        cost_minimum: "200",
-                       detail: "舗装新しくしませんか？最短１日で綺麗に舗装し直します！")             
+                       detail: "舗装新しくしませんか？最短１日で綺麗に舗装し直します！")
 
+Relationship.create!(follower_id: "4",
+                     followed_id: "1")
+
+Relationship.create!(follower_id: "4",
+                     followed_id: "2")                    
+
+# sample user 5                       
 User.create!(name:  "Example1",
              email: "example1@railstutorial.org",
              password:              "foobar",
              password_confirmation: "foobar",
-             admin: true)
+             admin: true)             
              
+# sample user 6             
 User.create!(name:  "Example2",
              email: "example2@railstutorial.org",
              password:              "foobar",
              password_confirmation: "foobar",
              admin: true)
              
+# sample user 7             
 User.create!(name:  "Example3",
              email: "example3@railstutorial.org",
              password:              "foobar",
              password_confirmation: "foobar",
              admin: true)
              
+# sample user 8             
 User.create!(name:  "Example4",
              email: "example4@railstutorial.org",
              password:              "foobar",
              password_confirmation: "foobar",
              admin: true)
-             
+
+# sample user 9             
 User.create!(name:  "Example5",
              email: "example5@railstutorial.org",
              password:              "foobar",
              password_confirmation: "foobar",
              admin: false)
-             
+
+# sample user 10             
 User.create!(name:  "Example6",
              email: "example6@railstutorial.org",
              password:              "foobar",
              password_confirmation: "foobar",
-             admin: false)             
-
+             admin: false)
+                
+# sample user 11
 User.create!(name:  "Example7",
              email: "example7@railstutorial.org",
              password:              "foobar",
