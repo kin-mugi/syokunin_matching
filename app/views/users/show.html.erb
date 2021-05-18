@@ -1,7 +1,6 @@
 <% provide(:title, @user.name) %>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-  <%= render 'shared/stats' %> 
-  <%= render 'follow_form' if logged_in? %>   
-
-  
+<%= gravatar_for @user %>
+<%= @user.name %>
+<%= render 'shared/stats' %> 
+<%= render 'follow_form' if logged_in? %>
+<%= render 'my_order' %>

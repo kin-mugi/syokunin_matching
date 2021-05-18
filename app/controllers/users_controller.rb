@@ -13,6 +13,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @recieving_orders = Kaminari.paginate_array(@user.recieving_orders).page(params[:r_page]).per(5)
+    @placing_orders = Kaminari.paginate_array(@user.placing_orders).page(params[:p_page]).per(5)
   end
 
   def new

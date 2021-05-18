@@ -1,0 +1,27 @@
+<ul>
+  <p>受注</p>
+  <% @recieving_orders.each do |recieving_order| %>
+    <li>
+    <span><%= link_to recieving_order.topic, recieving_order %></span>
+    <span>
+      Posted <%= time_ago_in_words(recieving_order.created_at) %> ago.
+    </span>
+  </li>
+  <% end %>
+</ul>
+
+<%= paginate @recieving_orders, :param_name => 'r_page' %>
+
+<ul>
+  <p>発注</p>
+  <% @placing_orders.each do |placing_order| %>
+    <li>
+    <span><%= link_to placing_order.topic, placing_order %></span>
+    <span>
+      Posted <%= time_ago_in_words(placing_order.created_at) %> ago.
+    </span>
+  </li>
+  <% end %>
+</ul>
+
+<%= paginate @placing_orders, :param_name => 'p_page' %>
