@@ -1,0 +1,2 @@
+class PRoom < ApplicationRecord
+end

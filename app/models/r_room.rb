@@ -1,0 +1,2 @@
+class RRoom < ApplicationRecord
+end
