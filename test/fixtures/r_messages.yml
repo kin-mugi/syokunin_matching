@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recieving_order: one
+  r_room: one
+  content: MyText
+
+two:
+  recieving_order: two
+  r_room: two
+  content: MyText
