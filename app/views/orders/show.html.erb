@@ -1,0 +1,33 @@
+<% if @order.order_list == "placing" %>
+  <% provide(:title, "発注詳細") %>
+  <h2>発注詳細</h2>
+<% else %>
+  <% provide(:title, "受注詳細") %>
+  <h2>受注詳細</h2>
+<% end %>
+
+<ul>
+  <li>タイトル:   <%= @order.topic %></li>
+  <li>カテゴリー: <%= @order.category %></li>
+  <li>予算:      <%= @order.cost_minimum %>万 ~ <%= @order.cost_maximum %>万</li>
+  <li>詳細:      <%= @order.detail %></li>
+  <%= link_to gravatar_for(@user, size: 20), @user %>
+  <span><%= link_to @user.name, @user %></span>
+  <% if current_user?(@user) %>
+    <span><%= link_to "編集", edit_order_path %></span>
+  <% end %>
+</ul>
+
+<% unless @user == current_user %>
+  <% if @isRoom == true %>
+    <a href="/rooms/<%= @roomId %>">チャットへ</a>
+  <% else %>
+    <%= form_for @room do |f| %>
+      <%= fields_for @user_room do |e| %>
+        <%= e.hidden_field :user_id, value: @user.id %>
+        <%= e.hidden_field :order_id, value: @order.id %>
+      <% end %>
+      <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+    <% end %>
+  <% end %>
+<% end %>

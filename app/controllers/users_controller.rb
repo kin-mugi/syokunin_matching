@@ -13,8 +13,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+<<<<<<< HEAD
     @recieving_orders = Kaminari.paginate_array(@user.recieving_orders).page(params[:r_page]).per(5)
     @placing_orders = Kaminari.paginate_array(@user.placing_orders).page(params[:p_page]).per(5)
+=======
+    @orders = @user.orders.page(params[:page]).per(10)
+>>>>>>> fix/orders
   end
 
   def new
@@ -53,11 +57,6 @@ class UsersController < ApplicationController
     redirect_to users_url    
   end
 
-  def my_orders
-    @user = User.find(params[:id])
-    @recieving_orders = @user.recieving_orders.page(params[:page]).per(10)
-  end
-
   def following
     @title = "Following"
     @user  = User.find(params[:id])
@@ -90,5 +89,5 @@ class UsersController < ApplicationController
     # 管理者かどうか確認
     def admin_user
       redirect_to(root_url) unless current_user.admin?
-    end    
+    end
 end

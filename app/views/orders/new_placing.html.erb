@@ -1,6 +1,6 @@
-<% provide(:title, '投稿の変更') %>
-<h1>投稿の変更</h1>
-<%= form_with(model: @placing_order, local: true) do |f| %>
+<% provide(:title, '新しい発注') %>
+<h1>新しい発注</h1>
+<%= form_with(model: @order, local: true) do |f| %>
   <%= render 'shared/error_messages', model: f.object %>
 
   <p><%= f.label :題名 %></p>
@@ -17,6 +17,8 @@
   
   <p><%= f.label :detail %></p>
   <%= f.text_area :detail %>
+
+  <%= f.hidden_field :order_list, value: "placing" %>
 
   <p><%= f.submit "送信", class: "btn btn-primary" %></p>
 <% end %>
