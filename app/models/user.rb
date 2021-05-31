@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :orders, dependent: :destroy
+  has_many :user_many, dependent: :destroy
   has_many :recieving_orders, dependent: :destroy
   has_many :placing_orders, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",

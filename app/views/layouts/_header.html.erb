@@ -7,7 +7,7 @@
         <li><%= link_to "ヘルプ", help_path %></li>
         
         <% if logged_in? %>
-          <li><%= link_to "ユーザ一蘭", users_path %></li>
+          <li><%= link_to "ユーザ一一覧", users_path %></li>
           <li>
             <a href="#">
               アカウント <b></b>
@@ -23,10 +23,10 @@
             注文 <b></b>
           </a>
           <ul>
-            <li><%= link_to "受注一覧", recieving_orders_path %></li>
-            <li><%= link_to "受注する", new_recieving_order_path %></li>
-            <li><%= link_to "発注一覧", placing_orders_path %></li>
-            <li><%= link_to "発注する", new_placing_order_path %></li>            
+            <li><%= link_to "受注一覧", "/recieving_orders" %></li>
+            <li><%= link_to "受注する", "/orders/new_recieving" %></li>
+            <li><%= link_to "発注一覧", "/placing_orders" %></li>
+            <li><%= link_to "発注する", "/orders/new_placing" %></li>            
           </ul>
         </li>
         <% else %>
