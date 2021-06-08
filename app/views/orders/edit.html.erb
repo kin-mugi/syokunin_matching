@@ -18,7 +18,7 @@
   <p><%= f.label :detail %></p>
   <%= f.text_area :detail %>
 
-  <%= f.hidden_field :order_list, value: "@order.order_list" %>
+  <%= f.hidden_field :order_list, value: @order.order_list %>
 
   <p><%= f.submit "編集する", class: "btn btn-primary" %></p>
 <% end %>

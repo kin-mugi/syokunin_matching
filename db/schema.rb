@@ -37,6 +37,54 @@ ActiveRecord::Schema.define(version: 2021_05_24_065319) do
     t.text "category"
   end
 
+  create_table "p_entries", force: :cascade do |t|
+    t.integer "placing_order_id"
+    t.integer "p_room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["p_room_id"], name: "index_p_entries_on_p_room_id"
+    t.index ["placing_order_id"], name: "index_p_entries_on_placing_order_id"
+  end
+
+  create_table "p_messages", force: :cascade do |t|
+    t.integer "placing_order_id"
+    t.integer "p_room_id"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["p_room_id"], name: "index_p_messages_on_p_room_id"
+    t.index ["placing_order_id"], name: "index_p_messages_on_placing_order_id"
+  end
+
+  create_table "p_rooms", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "r_entries", force: :cascade do |t|
+    t.integer "recieving_order_id"
+    t.integer "r_room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["r_room_id"], name: "index_r_entries_on_r_room_id"
+    t.index ["recieving_order_id"], name: "index_r_entries_on_recieving_order_id"
+  end
+
+  create_table "r_messages", force: :cascade do |t|
+    t.integer "recieving_order_id"
+    t.integer "r_room_id"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["r_room_id"], name: "index_r_messages_on_r_room_id"
+    t.index ["recieving_order_id"], name: "index_r_messages_on_recieving_order_id"
+  end
+
+  create_table "r_rooms", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -73,4 +121,12 @@ ActiveRecord::Schema.define(version: 2021_05_24_065319) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "p_entries", "p_rooms"
+  add_foreign_key "p_entries", "placing_orders"
+  add_foreign_key "p_messages", "p_rooms"
+  add_foreign_key "p_messages", "placing_orders"
+  add_foreign_key "r_entries", "r_rooms"
+  add_foreign_key "r_entries", "recieving_orders"
+  add_foreign_key "r_messages", "r_rooms"
+  add_foreign_key "r_messages", "recieving_orders"
 end

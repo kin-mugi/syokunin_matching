@@ -6,7 +6,7 @@
   <p><%= f.label :題名 %></p>
   <%= f.text_field :topic %>
 
-  <p><%= f.label :category %></p>
+  <p><%= f.label :カテコリー %></p>
   <%= f.text_field :category %>
 
   <p><%= f.label :cost_minimum, "予算" %></p>
@@ -15,7 +15,7 @@
   <%= f.label :cost_maximum, "~" %>
   <%= f.number_field :cost_maximum %>万
   
-  <p><%= f.label :detail %></p>
+  <p><%= f.label :詳細 %></p>
   <%= f.text_area :detail %>
 
   <%= f.hidden_field :order_list, value: "placing" %>
