@@ -1,19 +1,24 @@
-<% provide(:title, @title) %>
-<div>
-  <aside>
-    <section>
-      <%= gravatar_for @user %>
-      <%= @user.name %>
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
-  <div>
-    <h3><%= @title %></h3>
+<div class="container-flued m-3">
+  <% provide(:title, @title) %>
+  <div class="text-center">
+    <%= gravatar_for @user %>
+    <h3><%= @user.name %></h3>
+    <%= render 'shared/stats' %>
+  </div>
+  <div class="mx-5">
     <% if @users.any? %>
-      <ul>
-        <%= render @users %>
-      </ul>
+      <h3><%= @title %></h3>
+      <ul class="list-unstyled">    
+        <% @users.each do |user|  %>
+          <li class="my-2">
+            <%= render user %>
+          </li>
+        <% end %>
+        </ul>
+        
       <%= paginate @users %>
+    <% else %>
+     <p>No <%= @title %></p>
     <% end %>
   </div>
 </div>

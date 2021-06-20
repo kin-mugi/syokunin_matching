@@ -1,0 +1,8 @@
+<ul> 
+  <li>
+    <%= link_to order.topic, order %>
+    <div class="post-time small">
+      <%= time_ago_in_words(order.created_at) %>前に投稿
+    </div>
+  </li>
+</ul>

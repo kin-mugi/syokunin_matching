@@ -1,8 +1,13 @@
-<li>
-  <span><%= link_to order.topic, order %></span>
-  <span>
-    <%= time_ago_in_words(order.created_at) %>前に投稿
-  </span>
-  <%= link_to gravatar_for(order.user, size: 20), order.user %>
-  <%= link_to order.user.name, order.user %>
-</li>
+<div class="d-flex align-items-center justify-content-center">
+  <div class="col-1">
+    <%= link_to gravatar_for(order.user, size: 30), order.user %>
+  </div>
+  <div class="col-11 mx-2">
+    <%= link_to order.topic, order %>
+    <div class="d-flex align-items-center small">
+      <%= order.user.name %>
+      <small class="mx-2">
+        <%= time_ago_in_words(order.created_at) %>前に投稿
+      </small>
+    </div>
+</div>

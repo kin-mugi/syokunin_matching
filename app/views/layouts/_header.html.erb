@@ -1,38 +1,36 @@
 <header>
-  <div>
-    <%= link_to "テッキー職人", root_path, id: "logo" %>
-    <nav>
-      <ul>
-        <li><%= link_to "ホーム", root_path %></li>
-        <li><%= link_to "ヘルプ", help_path %></li>
-        
-        <% if logged_in? %>
-          <li><%= link_to "ユーザ一一覧", users_path %></li>
-          <li>
-            <a href="#">
-              アカウント <b></b>
-            </a>
-            <ul>
-              <li><%= link_to "マイページ", current_user %></li>
-              <li><%= link_to "登録情報変更", edit_user_path(current_user) %></li>
-              <li><%= link_to "ログアウト", logout_path ,method: :delete %></li>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="/">職人マッチング</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="/">ホーム</a></li>
+                <li class="nav-item"><a class="nav-link" href="/help">ヘルプ</a></li>
+                <% if logged_in? %>  
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">注文</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                        <li><a class="dropdown-item" href="/orders/new_placing">工事を募集する！</a></li>
+                        <li><a class="dropdown-item" href="/orders/new_recieving">工事を依頼する！</a></li>
+                        <li><a class="dropdown-item" href="/recieving_orders">募集一覧</a></li>
+                        <li><a class="dropdown-item" href="/placing_orders">依頼一覧</a></li>
+                    </ul>
+                  </li> 
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">アカウント</a>
+                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
+                        <li><a class="dropdown-item" href="/users/<%= current_user.id %>">マイページ</a></li>
+                        <li><a class="dropdown-item" href="/users/<%= current_user.id %>/edit">登録情報変更</a></li>
+                        <li><a class="dropdown-item" href="/users">ユーザー一覧</a></li>
+                        <li><a class="dropdown-item" href="/logout" data-method="delete">ログアウト</a></li>                    
+                      </ul>
+                  </li>
+                <% else %>
+                  <li class="nav-item"><a class="nav-link" href="/login" data-method="get">ログイン</a></li>                
+                <% end %>                 
             </ul>
-          </li>
-          <li>
-          <a href="#">
-            注文 <b></b>
-          </a>
-          <ul>
-            <li><%= link_to "受注一覧", "/recieving_orders" %></li>
-            <li><%= link_to "受注する", "/orders/new_recieving" %></li>
-            <li><%= link_to "発注一覧", "/placing_orders" %></li>
-            <li><%= link_to "発注する", "/orders/new_placing" %></li>            
-          </ul>
-        </li>
-        <% else %>
-          <li><%= link_to "ログイン", login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</header>
+        </div>
+    </div>
+  </nav>
+</header>  

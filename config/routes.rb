@@ -22,17 +22,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :recieving_orders do
-    member do
-      get :new_plus
-    end
-  end
-
-  resources :placing_orders do
-    member do
-      get :new_plus
-    end
-  end
 
   resources :users do
     member do
