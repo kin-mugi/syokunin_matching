@@ -1,33 +1,52 @@
-<% if @order.order_list == "placing" %>
-  <% provide(:title, "発注詳細") %>
-  <h2>発注詳細</h2>
-<% else %>
-  <% provide(:title, "受注詳細") %>
-  <h2>受注詳細</h2>
-<% end %>
-
-<ul>
-  <li>タイトル:   <%= @order.topic %></li>
-  <li>カテゴリー: <%= @order.category %></li>
-  <li>予算:      <%= @order.cost_minimum %>万 ~ <%= @order.cost_maximum %>万</li>
-  <li>詳細:      <%= @order.detail %></li>
-  <%= link_to gravatar_for(@user, size: 20), @user %>
-  <span><%= link_to @user.name, @user %></span>
-  <% if current_user?(@user) %>
-    <span><%= link_to "編集", edit_order_path %></span>
-  <% end %>
-</ul>
-
-<% unless @user == current_user %>
-  <% if @isRoom == true %>
-    <a href="/rooms/<%= @roomId %>">チャットへ</a>
+<div class="container-fluid">
+  <div class="my-3">
+  <% if @order.order_list == "placing" %>
+    <% provide(:title, "発注詳細") %>
+    <h3>発注詳細</h3>
   <% else %>
-    <%= form_for @room do |f| %>
-      <%= fields_for @user_room do |e| %>
-        <%= e.hidden_field :user_id, value: @user.id %>
-        <%= e.hidden_field :order_id, value: @order.id %>
-      <% end %>
-      <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
-    <% end %>
+    <% provide(:title, "受注詳細") %>
+    <h3>受注詳細</h3>
   <% end %>
-<% end %>
+  <table class="table bg-white">
+    <tbody>
+      <tr>
+        <th scope="row">タイトル</th>
+        <td><%= @order.topic %></td>
+      </tr>
+      <tr>
+        <th scope="row">カテゴリー</th>
+        <td><%= @order.category %></td>
+      </tr>
+      <tr>
+        <th scope="row">予算</th>
+        <td><%= @order.cost_minimum %>万 ~ <%= @order.cost_maximum %>万</td>
+      </tr>
+      <tr>
+        <th scope="row">詳細</th>
+        <td><%= @order.detail %></td>
+      </tr>      
+    </tbody>
+  </table>
+  <div class="text-center mb-4">
+    <%= link_to gravatar_for(@user, size: 30), @user %>
+    <span><%= link_to @user.name, @user %></span>
+    <% if current_user?(@user) %>
+      <span><%= link_to "編集", edit_order_path %></span>
+    <% end %>    
+  </div>
+  <div class="text-center mb-3">
+    <% unless @user == current_user %>
+      <% if @isRoom == true %>
+        <a href="/rooms/<%= @roomId %>">チャットへ</a>
+      <% else %>
+        <%= form_for @room do |f| %>
+          <%= fields_for @user_room do |e| %>
+            <%= e.hidden_field :user_id, value: @user.id %>
+            <%= e.hidden_field :order_id, value: @order.id %>
+          <% end %>
+          <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+        <% end %>
+      <% end %>
+    <% end %>  
+  </div>
+</div>

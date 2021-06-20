@@ -1,5 +1,54 @@
 <% provide(:title, "Home") %>
-<h1>テッキー職人</h1>
-<p>~職人とのマッチングアプリケーション~</p>
-<%= link_to "受注" %>
-<%= link_to "発注" %>
+<section class="masthead bg-primary text-white text-center">
+    <div class="container-fluid d-flex align-items-center justify-content-center">
+        <div class="col-5">
+            <h1 class="text-uppercase">どんな工事も<br>
+                                                            かんたんネット注文！</h1>
+            <p class="font-weight-light">職人とマッチングするプラットフォームです。</p>
+        </div>
+        <div class="col-7">
+            <img class="img-fluid p-4" src="assets/daiku4.jpg" alt="..." >
+        </div>
+    </div>       
+</section>
+<section class="text-center step-section">
+    <div class="container-fluid links p-2 top-50">
+        <h3 class="p-4">方法は簡単３STEP！</h3>
+        <div class="row p-2">
+            <div class="step col border">
+                <div class="col-6 d-flex align-items-center justify-content-center">
+                    <p><span class="step-name">SETP1</span><br>
+                    新規会員登録</p>
+                </div>
+                <div class="col-6 d-flex align-items-center justify-content-center">
+                    <img src="assets/touroku2.png" class="img-links img-fluid">
+                </div>
+            </div>
+            <div class="step col border">
+                <div class="col d-flex align-items-center justify-content-center">
+                    <p><span class="step-name">SETP2</span><br>
+                    注文</p>
+                </div>
+                <div class="col d-flex align-items-center justify-content-center">
+                    <img src="assets/kougu.png" class="img-fluid">
+                </div>
+            </div>
+            <div class="step col border">
+                <div class="col d-flex align-items-center justify-content-center">
+                    <p><span class="step-name">SETP1</span><br>
+                    職人とチャット</p>
+                </div>
+                <div class="col d-flex align-items-center justify-content-center">
+                    <img src="assets/chat.jpg"  class="img-fluid">
+                </div>    
+            </div>
+        </div>
+        <div class="m-5">
+            <button type="button" class="btn btn-warning btn-lg"><%= link_to "新規会員登録はこちら！", "/signup" %></button>
+            <p class=""><%= link_to "ログイン","/login" %></p>
+        </div>
+    </div>
+</section>
+
+
+

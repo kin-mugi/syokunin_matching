@@ -1,19 +1,27 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
-<%= form_with(model: @user, local: true) do |f| %>
-  <%= render 'shared/error_messages', model: f.object %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.submit "アカウント作成", class: "btn btn-primary" %>
-<% end %>
+<div class="bg-primary">
+  <div class="m-3">
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+      <div class="m-3">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="m-3">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+      <div class="m-3">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+      <div class="m-3">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <div>
+      <div class="my-3">
+        <%= f.submit "アカウント作成", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

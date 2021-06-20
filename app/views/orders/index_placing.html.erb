@@ -1,10 +1,13 @@
-<% provide(:title, "発注一覧") %>
-<h1>発注一覧</h1>
-<div>
-  <%= @orders.count %>件
-  <ol>
-    <% @orders.each do |order| %>
-      <%= render partial: 'orders/order', locals: { order: order} %>
-    <% end %>
-  </ol>
+<% provide(:title, "依頼一覧") %>
+<div class="container-fluid m-3">
+  <div class="container-fluid">
+    <ul class="list-group mb-3 mx-5">
+      <li class="list-unstyled fw-bold px-5 h3">依頼一覧</li>
+        <% @orders.each do |order| %>
+          <li class="list-group-item">
+            <%= render partial: 'orders/order', locals: { order: order} %>
+          </li> 
+        <% end %>
+    </ul>
+  </div>
 </div>
